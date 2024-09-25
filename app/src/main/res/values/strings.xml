@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Wanderlog</string>
+    <string name="back" />
+    <string name="nose">TODO</string>
+    <string name="img">TODO</string>
+    <string name="view">TODO</string>
+    <string name="but">TODO</string>
+    <string name="mmm">TODO</string>
+    <string name="todo">TODO</string>
+    <string name="backallow">TODO</string>
 </resources>
