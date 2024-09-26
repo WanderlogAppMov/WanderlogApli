@@ -21,14 +21,11 @@ class Search : AppCompatActivity() {
             insets
         }
 
-        // Configurar el toolbar
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        // Desactivar el título si no lo necesitas
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        // Configurar el botón en el Toolbar
         val toolbarButton = findViewById<ImageButton>(R.id.toolbarButton)
         val btSearch = findViewById<Button>(R.id.btSearch)
 
@@ -38,7 +35,8 @@ class Search : AppCompatActivity() {
         }
 
         toolbarButton.setOnClickListener {
-            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
     }

@@ -7,29 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".Results">
 
-    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="#084DA6"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- ImageButton dentro del Toolbar -->
         <ImageButton
             android:id="@+id/toolbarButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
             android:contentDescription="@string/backallow"
-            android:src="@drawable/arrow_back"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:src="@drawable/arrow_back" />
     </androidx.appcompat.widget.Toolbar>
-
-
-    <!-- Segunda CardView -->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView1"
@@ -52,23 +47,21 @@
             android:orientation="horizontal"
             android:padding="16dp">
 
-            <!-- Imagen principal a la izquierda -->
             <ImageView
                 android:id="@+id/cardImage"
                 android:layout_width="120dp"
-                android:layout_height="150dp"
+                android:layout_height="188dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/cuscoofi" />
+                android:src="@drawable/cusco" />
 
-            <!-- Sección de texto e íconos a la derecha -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:paddingStart="16dp">
+                android:paddingStart="16dp"
+                tools:ignore="RtlSymmetry">
 
-                <!-- Título e ícono de corazón -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -79,7 +72,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Cusco's adventure"
+                        android:text="@string/Title1"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -91,43 +84,39 @@
                         app:tint="#000000" />
                 </LinearLayout>
 
-                <!-- Subtítulo: Ciudad -->
                 <TextView
                     android:id="@+id/subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Cusco, Perú"
+                    android:text="@string/text1"
                     android:textSize="14sp" />
 
-                <!-- Detalles del viaje -->
                 <TextView
                     android:id="@+id/details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text='5 days\nLATAM Airlines\nHotel "Palacio del Inka"'
+                    android:text='@string/description1'
                     android:textSize="14sp" />
 
-                <!-- Precio -->
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="$350 per traveler"
+                    android:text="@string/price1"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <!-- Botón de detalles -->
                 <Button
                     android:id="@+id/detailsButton"
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:backgroundTint="#0A84FF"
-                    android:text="Details"
+                    android:backgroundTint="#084DA6"
+                    android:text="@string/button1"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
 
@@ -153,23 +142,21 @@
             android:orientation="horizontal"
             android:padding="16dp">
 
-            <!-- Imagen principal a la izquierda -->
             <ImageView
                 android:id="@+id/cardImage2"
                 android:layout_width="120dp"
-                android:layout_height="150dp"
+                android:layout_height="190dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/cuscoofi" />
+                android:src="@drawable/arequipa" />
 
-            <!-- Sección de texto e íconos a la derecha -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:paddingStart="16dp">
+                android:paddingStart="16dp"
+                tools:ignore="RtlSymmetry">
 
-                <!-- Título e ícono de corazón -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -180,7 +167,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Discover Arequipa"
+                        android:text="@string/title2"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -192,43 +179,39 @@
                         app:tint="#000000" />
                 </LinearLayout>
 
-                <!-- Subtítulo: Ciudad -->
                 <TextView
                     android:id="@+id/subtitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Arequipa, Perú"
+                    android:text="@string/location2"
                     android:textSize="14sp" />
 
-                <!-- Detalles del viaje -->
                 <TextView
                     android:id="@+id/details2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text='4 days\n Sky Airlines\nCasa Andina'
+                    android:text='@string/details2'
                     android:textSize="14sp" />
 
-                <!-- Precio -->
                 <TextView
                     android:id="@+id/price2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="$300 per traveler"
+                    android:text="@string/price2"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <!-- Botón de detalles -->
                 <Button
                     android:id="@+id/detailsButton2"
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:backgroundTint="#0A84FF"
-                    android:text="Details"
+                    android:backgroundTint="#084DA6"
+                    android:text="@string/button2"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
 

@@ -20,21 +20,29 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Configurar el toolbar
         val toolbar = findViewById<Toolbar>(R.id.myToolbar)
         setSupportActionBar(toolbar)
 
-        // Remover el título del Toolbar si no es necesario
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        // Encontrar el botón por su ID
         val button = findViewById<ImageButton>(R.id.ibPackages)
 
-        // Configurar el click listener del botón
         button.setOnClickListener {
             // Crear un Intent para ir a la segunda actividad
             val intent = Intent(this, Search::class.java)
             startActivity(intent) // Iniciar la segunda actividad
+        }
+
+        val footerButton2 = findViewById<ImageButton>(R.id.footerButton2)
+        footerButton2.setOnClickListener {
+            val intent = Intent(this, Favorites::class.java)
+            startActivity(intent)
+        }
+
+        val footerButton3 = findViewById<ImageButton>(R.id.footerButton3)
+        footerButton3.setOnClickListener {
+            val intent = Intent(this, Profile::class.java)
+            startActivity(intent)
         }
     }
 }

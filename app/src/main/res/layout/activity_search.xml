@@ -7,18 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".Search">
 
-
-    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="#084DA6"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- ImageButton dentro del Toolbar -->
         <ImageButton
             android:id="@+id/toolbarButton"
             android:layout_width="wrap_content"
@@ -28,7 +25,7 @@
             android:minHeight="48dp"
             android:src="@drawable/arrow_back"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="22dp" /> <!-- Colocar el botón a la derecha del Toolbar -->
+            tools:layout_editor_absoluteY="22dp" />
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
@@ -40,7 +37,7 @@
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Origin"
+        android:text="@string/origin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -57,7 +54,7 @@
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Destination"
+        android:text="@string/destination"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,7 +71,7 @@
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Travelers"
+        android:text="@string/travelers"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -90,7 +87,7 @@
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Date 2"
+        android:text="@string/date_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -105,7 +102,7 @@
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Date 1"
+        android:text="@string/date_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -117,7 +114,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Search"
+        android:backgroundTint="#084DA6"
+        android:text="@string/search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

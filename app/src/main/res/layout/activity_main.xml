@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".MainActivity">
 
-    <!-- Toolbar con solo imagen -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/myToolbar"
         android:layout_width="0dp"
@@ -32,8 +32,6 @@
             tools:layout_editor_absoluteX="206dp"
             tools:layout_editor_absoluteY="32dp" />
     </androidx.appcompat.widget.Toolbar>
-
-    <!-- Footer con tres botones de imagen -->
 
     <ImageButton
         android:id="@+id/ibPackages"
@@ -61,7 +59,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="438dp"
-        android:text="Packages"
+        android:text="@string/packages"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="16sp"
@@ -73,12 +71,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.945" />
 
+
     <LinearLayout
         android:id="@+id/footer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="0dp"
-        android:background="#D3F0F4"
+        android:background="#FFFFFF"
+        android:backgroundTint="#EFEFEF"
+        android:backgroundTintMode="src_in"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +93,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#00FFFFFF"
             android:contentDescription="@string/img"
-            android:src="@drawable/iconexplore2" /> <!-- Imagen del primer botón -->
+            android:src="@drawable/iconexplore2" />
 
 
         <ImageButton
@@ -103,7 +104,7 @@
             android:layout_marginEnd="16dp"
             android:backgroundTint="#00FFFFFF"
             android:contentDescription="@string/mmm"
-            android:src="@drawable/iconsaved" /> <!-- Imagen del segundo botón -->
+            android:src="@drawable/iconsaved" />
 
 
         <ImageButton
@@ -121,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Popular destination"
+        android:text="@string/destinations"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
