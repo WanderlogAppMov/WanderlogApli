@@ -57,4 +57,33 @@
     <string name="search">Search</string>
     <string name="travelers">Travelers</string>
     <string name="origin">Origin</string>
+    <string name="booking_communication">Booking Communication</string>
+    <string name="password">password</string>
+    <string name="username_of_email_address">username of email address</string>
+    <string name="don_t_have_an_account">Don´t have an account?</string>
+    <string name="sing_up">Sing Up</string>
+    <string name="continue_with_username_email">Continue with username/email</string>
+    <string name="forgot_your_password">Forgot your Password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="logoDescription">Main Wanderlog Logo</string>
+    <string name="i_have_account">I have account</string>
+    <string name="sign_ina">Sign In</string>
+    <string name="organization_name">Organization Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="register">Register</string>
+    <string name="restaurant">Restaurants</string>
+    <string name="add_to_plan">Add to Plan</string>
+    <string name="admin_panel">Admin Panel</string>
+    <string name="view_16">view16</string>
+    <string name="view15">View15</string>
+    <string name="view2">View2</string>
+    <string name="view2_1">View2.1</string>
+    <string name="attractionss">Attractions</string>
+    <string name="add_to_plans">Add to Plan</string>
+    <string name="usuario_1">Usuario #1</string>
+    <string name="usuario_4">Usuario #4</string>
+    <string name="restaurantss">Restaurants</string>
+
 </resources>
