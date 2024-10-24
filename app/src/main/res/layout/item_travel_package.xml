@@ -47,7 +47,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <!-- Aquí agregamos el botón de detalles -->
             <Button
                 android:id="@+id/detailsButton"
                 android:layout_width="wrap_content"
@@ -56,7 +55,17 @@
                 android:layout_marginTop="8dp"
                 android:backgroundTint="#084DA6"
                 android:textColor="#FFFFFF" />
+
         </LinearLayout>
+
+        <!-- Botón de favorito -->
+        <ImageButton
+            android:id="@+id/favoriteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/todoo"
+            android:src="@drawable/heart" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
