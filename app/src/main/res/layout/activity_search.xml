@@ -35,9 +35,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="Origin"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="@string/origin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -45,16 +45,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.118" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/ptDestination"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="text"
+        android:hint="Destination"
         android:minHeight="48dp"
-        android:text="@string/destination"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -63,50 +62,46 @@
         app:layout_constraintVertical_bias="0.183" />
 
     <EditText
-        android:id="@+id/ptDate1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:text="@string/travelers"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311" />
-
-    <EditText
-        android:id="@+id/ptDate2"
+        android:id="@+id/ptMaxprice"
         android:layout_width="197dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="maximun price"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="@string/date_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <EditText
-        android:id="@+id/ptTravelers"
+        android:id="@+id/ptMinprice"
         android:layout_width="182dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:autofillHints=""
         android:ems="10"
+        android:hint="minimun price"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="@string/date_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.385" />
+
+    <Spinner
+        android:id="@+id/spOrder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.469" />
 
     <Button
         android:id="@+id/btSearch"
@@ -121,5 +116,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.865" />
+
+    <EditText
+        android:id="@+id/etDate1"
+        android:layout_width="185dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="3dp"
+        android:ems="10"
+        android:hint="Date 1"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/etDate2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.252" />
+
+    <EditText
+        android:id="@+id/etDate2"
+        android:layout_width="195dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="Date 2"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etDate1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251" />
+
+    <EditText
+        android:id="@+id/etTravelers"
+        android:layout_width="378dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:hint="Travelers"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.318" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

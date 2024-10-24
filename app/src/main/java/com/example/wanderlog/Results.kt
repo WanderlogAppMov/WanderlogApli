@@ -56,22 +56,37 @@ class Results : AppCompatActivity() {
         })
         recyclerView.adapter = adapter
 
-        // Llamar a la API para obtener los paquetes de viaje
-        getTravelPackages()
+        val destination = intent.getStringExtra("destination")
+        val minPrice = intent.getDoubleExtra("minPrice", Double.MIN_VALUE)
+        val maxPrice = intent.getDoubleExtra("maxPrice", Double.MAX_VALUE)
+        val order = intent.getStringExtra("order")
+         // Llamar a la API para obtener los paquetes de viaje
+        getTravelPackages(destination, minPrice, maxPrice, order)
 
         // Botón de ordenación
         val buttonSort = findViewById<Button>(R.id.buttonSort)
         buttonSort.setOnClickListener { showSortMenu(it) }
     }
 
-    private fun getTravelPackages() {
+    private fun getTravelPackages(destination: String?, minPrice: Double, maxPrice: Double, order: String?) {
         travelPackageService.getAllTravelPackages().enqueue(object : Callback<List<TravelPackage>> {
             override fun onResponse(call: Call<List<TravelPackage>>, response: Response<List<TravelPackage>>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
                         travelPackages.clear()
-                        travelPackages.addAll(it)
-                        adapter.notifyDataSetChanged()  // Actualizar el adaptador con los nuevos datos
+                        travelPackages.addAll(it.filter { travelPackage ->
+                            val matchesDestination = destination?.let { dest ->
+                                travelPackage.destination.contains(dest, ignoreCase = true)
+                            } ?: true
+                            val matchesPrice = travelPackage.pricePerStudent in minPrice..maxPrice
+                            matchesDestination && matchesPrice
+                        })
+                        if (order == "Ascending") {
+                            travelPackages.sortBy { it.pricePerStudent }
+                        } else if (order == "Descending") {
+                            travelPackages.sortByDescending { it.pricePerStudent }
+                        }
+                        adapter.notifyDataSetChanged()
                     }
                 }
             }
