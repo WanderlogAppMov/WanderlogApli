@@ -1,11 +1,12 @@
 package com.example.wanderlog
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuInflater
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ImageView
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -25,8 +26,8 @@ class Results : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: TravelPackageAdapter
     private var travelPackages = mutableListOf<TravelPackage>()
+    private var favoritePackages = mutableListOf<TravelPackage>() // Lista de favoritos
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_results)
@@ -37,7 +38,6 @@ class Results : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val toolbarButton = findViewById<ImageButton>(R.id.toolbarButton)
-
         toolbarButton.setOnClickListener {
             val intent = Intent(this, Search::class.java)
             startActivity(intent)
@@ -50,15 +50,22 @@ class Results : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Inicializar el adaptador
-        adapter = TravelPackageAdapter(travelPackages)
+        // Inicializar el adaptador con la lógica de favoritos
+        adapter = TravelPackageAdapter(travelPackages, onFavoriteClicked = { travelPackage ->
+            handleFavoriteClick(travelPackage)
+        })
         recyclerView.adapter = adapter
 
         val destination = intent.getStringExtra("destination")
         val minPrice = intent.getDoubleExtra("minPrice", Double.MIN_VALUE)
         val maxPrice = intent.getDoubleExtra("maxPrice", Double.MAX_VALUE)
         val order = intent.getStringExtra("order")
+         // Llamar a la API para obtener los paquetes de viaje
         getTravelPackages(destination, minPrice, maxPrice, order)
+
+        // Botón de ordenación
+        val buttonSort = findViewById<Button>(R.id.buttonSort)
+        buttonSort.setOnClickListener { showSortMenu(it) }
     }
 
     private fun getTravelPackages(destination: String?, minPrice: Double, maxPrice: Double, order: String?) {
@@ -88,5 +95,44 @@ class Results : AppCompatActivity() {
                 // Manejar error
             }
         })
+    }
+
+    // Función para manejar clic en favorito
+    private fun handleFavoriteClick(travelPackage: TravelPackage) {
+        if (FavoriteManager.isFavorite(travelPackage)) {
+            FavoriteManager.removePackage(travelPackage)
+            Toast.makeText(this, "${travelPackage.destination} removido de favoritos", Toast.LENGTH_SHORT).show()
+        } else {
+            FavoriteManager.addPackage(travelPackage)
+            Toast.makeText(this, "${travelPackage.destination} añadido a favoritos", Toast.LENGTH_SHORT).show()
+        }
+
+        // Cambiar el estado del ícono de favorito en el adaptador
+        adapter.notifyDataSetChanged()
+    }
+
+
+    private fun showSortMenu(view: View) {
+        val popup = PopupMenu(this, view)
+        val inflater: MenuInflater = popup.menuInflater
+        inflater.inflate(R.menu.sort_menu, popup.menu)
+        popup.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.sortByPrice -> {
+                    // Lógica para ordenar por precio
+                    travelPackages.sortBy { it.pricePerStudent }
+                    adapter.notifyDataSetChanged()
+                    true
+                }
+                R.id.sortByAlphabet -> {
+                    // Lógica para ordenar alfabéticamente
+                    travelPackages.sortBy { it.destination }
+                    adapter.notifyDataSetChanged()
+                    true
+                }
+                else -> false
+            }
+        }
+        popup.show()
     }
 }

@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wanderlog.data.model.TravelPackage
 
 class Favorites : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,28 +24,37 @@ class Favorites : AppCompatActivity() {
         } else {
             emptyStateContainer.visibility = LinearLayout.GONE
             favoritePackages.forEach { travelPackage ->
+                // Asegúrate de que travelPackage es del tipo correcto
                 val packageView = layoutInflater.inflate(R.layout.package_item, favoritesContainer, false)
 
-                val titleView = packageView.findViewById<TextView>(R.id.title)
-                titleView.text = travelPackage.title
+                // Verificación de las propiedades
+                travelPackage?.let {
+                    val titleView = packageView.findViewById<TextView>(R.id.title)
+                    titleView.text = it.destination
 
-                val subtitleView = packageView.findViewById<TextView>(R.id.subtitle)
-                subtitleView.text = travelPackage.subtitle
+                    val subtitleView = packageView.findViewById<TextView>(R.id.subtitle)
+                    subtitleView.text = "${it.continent}, ${it.agency.organizationName}"
 
-                val detailsView = packageView.findViewById<TextView>(R.id.details)
-                detailsView.text = travelPackage.details
+                    val priceView = packageView.findViewById<TextView>(R.id.price)
+                    priceView.text = "$${it.pricePerStudent}"
 
-                val priceView = packageView.findViewById<TextView>(R.id.price)
-                priceView.text = travelPackage.price
+                    val favoriteIcon = packageView.findViewById<ImageView>(R.id.favoriteIcon)
+                    favoriteIcon.setImageResource(R.drawable.heart_filled)  // Icono de favorito lleno
+                    favoriteIcon.setOnClickListener {
+                        // Aquí pasamos el travelPackage en lugar del View (it)
+                        FavoriteManager.removePackage(travelPackage)
+                        favoritesContainer.removeView(packageView)
 
-                val favoriteIcon = packageView.findViewById<ImageView>(R.id.favoriteIcon)
-                favoriteIcon.setImageResource(R.drawable.heart_filled) // Icono favorito
-                favoriteIcon.setOnClickListener {
-                    FavoriteManager.removePackage(travelPackage)
-                    favoritesContainer.removeView(packageView)
+                        // Verificamos si la lista de favoritos está vacía
+                        if (FavoriteManager.getFavoritePackages().isEmpty()) {
+                            favoritesContainer.visibility = LinearLayout.GONE
+                            emptyStateContainer.visibility = LinearLayout.VISIBLE
+                        }
+                    }
+
+
+                    favoritesContainer.addView(packageView)
                 }
-
-                favoritesContainer.addView(packageView)
             }
         }
 
@@ -61,3 +71,4 @@ class Favorites : AppCompatActivity() {
         }
     }
 }
+

@@ -89,4 +89,5 @@
         <item>Ascending</item>
         <item>Descending</item>
     </string-array>
+    <string name="todoo">TODO</string>
 </resources>
