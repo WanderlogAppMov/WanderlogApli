@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +7,7 @@
     tools:layout_editor_absoluteX="12dp"
     tools:layout_editor_absoluteY="27dp">
 
+    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -27,6 +27,7 @@
             android:src="@drawable/arrow_back" />
     </androidx.appcompat.widget.Toolbar>
 
+    <!-- Imagen del paquete -->
     <ImageView
         android:id="@+id/packageImage"
         android:layout_width="0dp"
@@ -35,45 +36,45 @@
         android:scaleType="centerCrop"
         android:src="@drawable/detailimage1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Título del paquete -->
     <TextView
         android:id="@+id/packageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/packagetitle"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/packageImage" />
 
+    <!-- Precio del paquete -->
     <TextView
         android:id="@+id/packagePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/price"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/packageTitle" />
 
+    <!-- Descripción del paquete -->
     <TextView
         android:id="@+id/packageDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/detaildescription"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/packagePrice" />
 
+    <!-- Información adicional en un GridLayout -->
     <GridLayout
         android:id="@+id/iconGrid"
         android:layout_width="wrap_content"
@@ -87,6 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/packageDetails">
 
+        <!-- Información del hotel -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,13 +105,13 @@
                 android:src="@drawable/hotelicon" />
 
             <TextView
+                android:id="@+id/hotelName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/hotel"
-                android:textAlignment="center"
                 android:textSize="14sp" />
         </LinearLayout>
 
+        <!-- Información del vuelo -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -126,13 +128,13 @@
                 android:src="@drawable/flighticon" />
 
             <TextView
+                android:id="@+id/flightDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/flights"
-                android:textAlignment="center"
                 android:textSize="14sp" />
         </LinearLayout>
 
+        <!-- Información del restaurante -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -149,13 +151,13 @@
                 android:src="@drawable/restauranticon" />
 
             <TextView
+                android:id="@+id/restaurantName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/restaurants"
-                android:textAlignment="center"
                 android:textSize="14sp" />
         </LinearLayout>
 
+        <!-- Información de la atracción -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -172,10 +174,9 @@
                 android:src="@drawable/attractionicon" />
 
             <TextView
+                android:id="@+id/attractionName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/attractions"
-                android:textAlignment="center"
                 android:textSize="14sp" />
         </LinearLayout>
     </GridLayout>
