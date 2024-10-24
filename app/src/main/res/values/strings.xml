@@ -85,5 +85,8 @@
     <string name="usuario_1">Usuario #1</string>
     <string name="usuario_4">Usuario #4</string>
     <string name="restaurantss">Restaurants</string>
-
+    <string-array name="order_array">
+        <item>Ascending</item>
+        <item>Descending</item>
+    </string-array>
 </resources>
