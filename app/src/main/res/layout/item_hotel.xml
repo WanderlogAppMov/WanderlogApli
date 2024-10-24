@@ -18,7 +18,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            tools:srcCompat="@drawable/sample_hotel_image" />
+            tools:srcCompat="@drawable/arequipa" />
 
         <TextView
             android:id="@+id/hotelName"
